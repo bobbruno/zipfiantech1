@@ -3,7 +3,6 @@ Created on 28/06/2014
 
 @author: bobbruno
 '''
-from symbol import if_stmt
 
 
 class symbolParser(object):
@@ -23,7 +22,6 @@ class symbolParser(object):
         """
         self._symbolDictArray = []
 
-
     def processLine(self, line):
         """
         Processes one line of symbols and adds it to the dictionary
@@ -34,23 +32,25 @@ class symbolParser(object):
         for symbol, pos in ((line[i], i) for i in range(0, len(line))):
             if symbol == '\n':
                 continue
-            if len(self._symbolDictArray) <= pos:   # Lazy initialization of dict
+            if len(self._symbolDictArray) <= pos:  # Lazy initialization
                 self._symbolDictArray.append({})
-            self._symbolDictArray[pos][symbol] = self._symbolDictArray[pos].get(symbol, 0) + 1
+            self._symbolDictArray[pos][symbol] = (
+                     self._symbolDictArray[pos].get(symbol, 0) + 1)
         return len(line)
 
     def reportStats(self, position):
         """
-        Reports the statistcs of the requested position (0-based)as a dictionary
-        of symbols and respective percentages (as keys and values in the 
-        range [0:1]. Non-existing positions will return an empty dictionary.
+        Reports the statistcs of the requested position (0-based)as a
+        dictionary of symbols and respective percentages (as keys and values in
+        the range [0:1]. Non-existing positions will return an empty
+        dictionary.
         :param position: Position to return stats about
         :type position: int
         :rtype: dict
         """
         if (position >= len(self._symbolDictArray)) or (position < 0):
             return {}
-        totalPosition = float(sum(self._symbolDictArray[position].itervalues()))
-        return { key: value/totalPosition for key, value in
-                         self._symbolDictArray[position].iteritems() }
-            
+        totalPosition = float(
+                        sum(self._symbolDictArray[position].itervalues()))
+        return {key: value / totalPosition for key, value in
+                         self._symbolDictArray[position].iteritems()}

@@ -23,7 +23,8 @@ class Test(unittest.TestCase):
         symbolP.processLine(Test.param)
         symbolP.processLine(Test.param2)
         result = symbolP.reportStats(1)
-        self.assertEqual(result["K"], 0.5, "'K' should have 50%, has {0}".format(result["K"]))
+        self.assertEqual(result["K"], 0.5,
+                         "'K' should have 50%, has {0}".format(result["K"]))
 
 
 if __name__ == "__main__":

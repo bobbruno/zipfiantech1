@@ -1,0 +1,17 @@
+#
+# A fatal error has been detected by the Java Runtime Environment.
+#
+#  SIGSEGV (0xb) at pc=0x00007f77fc4cc0aa, pid=6431, tid=140153321907968
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_60-b19) (build 1.7.0_60-b19)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.60-b09 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libc.so.6+0x1410aa]  __nss_hosts_lookup+0x8f9a
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core 
+dumping, try "ulimit -c unlimited" before starting Java again.
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp.
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
